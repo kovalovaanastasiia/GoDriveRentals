@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kovalovaanastasiia/GoDriveRentals/static/css/main.7acaea2f.css",
+    "main.js": "/kovalovaanastasiia/GoDriveRentals/static/js/main.dbfe20bf.js",
+    "index.html": "/kovalovaanastasiia/GoDriveRentals/index.html",
+    "main.7acaea2f.css.map": "/kovalovaanastasiia/GoDriveRentals/static/css/main.7acaea2f.css.map",
+    "main.dbfe20bf.js.map": "/kovalovaanastasiia/GoDriveRentals/static/js/main.dbfe20bf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.dbfe20bf.js"
+  ]
+}
