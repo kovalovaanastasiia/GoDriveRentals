@@ -1,0 +1,9 @@
+.carsList {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px 29px;
+  padding-left: 228px;
+  padding-right: 228px;
+}

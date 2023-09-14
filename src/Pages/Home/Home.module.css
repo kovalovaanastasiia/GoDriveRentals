@@ -11,15 +11,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   font-size: 50px;
-  margin-top: 400px;
+  margin-top: 300px;
   text-shadow: 0 0 10px rgb(33, 70, 255);
-  position: fixed;
+
 }
 .catalogLink {
-  display: inline-block;
-  padding: 20px 40px;
   text-decoration: none;
   color: white;
   font-size: 18px;
@@ -28,9 +25,14 @@
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  margin-left: 850px;
-  margin-top: 600px;
-  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 274px;
+  height: 44px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
 }
 .catalogLink:hover {
   background-color: #0B44CD;
