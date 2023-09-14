@@ -1,0 +1,39 @@
+.container {
+  height: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(to right, rgba(47, 48, 58, 0.6), rgba(47, 48, 58, 0.6)), url("../../../public/images/63050-spidometr_panel_priborov_chernyj.jpg");
+  overflow: hidden;
+}
+.mainTitle {
+  color: #e3dbdb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 50px;
+  margin-top: 400px;
+  text-shadow: 0 0 10px rgb(33, 70, 255);
+  position: fixed;
+}
+.catalogLink {
+  display: inline-block;
+  padding: 20px 40px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #3470FF;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-left: 850px;
+  margin-top: 600px;
+  position: fixed;
+}
+.catalogLink:hover {
+  background-color: #0B44CD;
+}
+
+
