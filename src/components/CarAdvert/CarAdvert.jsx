@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-
+import {IconSvg} from "../IconSvg/IconSvg";
 import css from './CarAdvert.module.css'
 import {CarModal} from "../CarModal/CarModal";
 
 
-export const CarAdvert = ({car}) => {
+export const CarAdvert = ({car, onFavouriteCar}) => {
   const addressArray = car.address.split(', ');
   const country = addressArray[addressArray.length - 1];
   const city = addressArray[addressArray.length - 2];
@@ -30,7 +30,13 @@ export const CarAdvert = ({car}) => {
   return (
     <>
       <div className={css.cardThumb}>
-        <img className={css.carImage} src={car.img} alt="Car"/>
+        <div className={css.imageThumb}>
+          <img className={css.carImage} src={car.img} alt="Car"/>
+          <button className={css.favorite} type='button' onClick={() => onFavouriteCar(car.id)}>
+            <IconSvg id={'heart'} className={`css.heartIcon ${car.favourite ? 'favourite' : ''}`}
+            />
+          </button>
+          </div>
         <div className={css.carTitle}>
           <div>
             {car.make}{' '}
@@ -41,9 +47,9 @@ export const CarAdvert = ({car}) => {
         </div>
         <ul className={css.descriptionList}>
           <div className={css.subString}>
-          <li className={css.descriptionItem}>{city}</li>
-          <li className={css.descriptionItem}>{country}</li>
-          <li className={css.descriptionItem}>{car.rentalCompany}</li>
+            <li className={css.descriptionItem}>{city}</li>
+            <li className={css.descriptionItem}>{country}</li>
+            <li className={css.descriptionItem}>{car.rentalCompany}</li>
           </div>
           <div className={css.subString}>
             <li className={css.descriptionItem}>{car.type}</li>
@@ -52,11 +58,11 @@ export const CarAdvert = ({car}) => {
             <li className={css.descriptionItem}>{functionality}</li>
           </div>
         </ul>
-        <button className={css.button} onClick={openModal}>
+        <button className={css.button} type='button' onClick={openModal}>
           Learn more
         </button>
-        </div>
-      {isModalOpen ? <CarModal car={car} isOpen={isModalOpen} onClose={closeModal} /> : ''}
+      </div>
+      {isModalOpen ? <CarModal car={car} isOpen={isModalOpen} onClose={closeModal}/> : ''}
     </>
   );
 };

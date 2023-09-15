@@ -30,7 +30,7 @@ export const CarModal = ({car, isOpen, onClose }) => {
     return () => {
       window.removeEventListener('keydown', handleEscKey);
     };
-  }, [isVisible]);
+  });
 
 
   if (!isVisible) {
@@ -83,7 +83,7 @@ export const CarModal = ({car, isOpen, onClose }) => {
             <li className={css.conditionItem}>Mileage: <span className={css.special}>{car.mileage.toLocaleString('en-US')}</span></li>
             <li className={css.conditionItem}>Price: <span className={css.special}>{car.rentalPrice}</span></li>
           </ul>
-          <button className={css.button}>Rental car</button>
+          <a className={css.button} href="tel:+380730000000">Rental car</a>
         </div>
 
       </div>

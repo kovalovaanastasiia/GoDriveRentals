@@ -8,6 +8,10 @@ export const Catalog = () => {
   const URL = 'https://6496e6dd83d4c69925a33840.mockapi.io/car_adverts';
   const [cars, setCars] = useState([]);
 
+const onToggleFavourite = () => {
+
+}
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -26,7 +30,7 @@ export const Catalog = () => {
       <ul className={css.carsList}>
         {cars.map(car => (
           <li key={car.id}>
-            <CarAdvert car={car} />
+            <CarAdvert car={car} onFavouriteCar={onToggleFavourite}/>
           </li>
         ))}
       </ul>

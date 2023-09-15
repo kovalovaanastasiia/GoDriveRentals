@@ -143,4 +143,9 @@
   line-height: 20px;
   border: none;
   margin-top: 36px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.button:hover {
+  background: #0B44CD;
 }
