@@ -7,10 +7,8 @@ import css from './Catalog.module.css'
 export const Catalog = () => {
   const URL = 'https://6496e6dd83d4c69925a33840.mockapi.io/car_adverts';
   const [cars, setCars] = useState([]);
+  const [favoriteCars, setFavoriteCars] = useState([]);
 
-const onToggleFavourite = () => {
-
-}
 
   useEffect(() => {
     async function fetchData() {
@@ -23,6 +21,10 @@ const onToggleFavourite = () => {
     }
 
     fetchData();
+
+    const storedFavorites =
+      JSON.parse(localStorage.getItem('favoriteCars')) || [];
+    setFavoriteCars(storedFavorites);
   }, []);
 
   return (
@@ -30,7 +32,7 @@ const onToggleFavourite = () => {
       <ul className={css.carsList}>
         {cars.map(car => (
           <li key={car.id}>
-            <CarAdvert car={car} onFavouriteCar={onToggleFavourite}/>
+            <CarAdvert car={car} favoriteCars={favoriteCars} setFavoriteCars={setFavoriteCars}/>
           </li>
         ))}
       </ul>

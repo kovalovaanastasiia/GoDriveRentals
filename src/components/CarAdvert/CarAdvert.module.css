@@ -13,11 +13,8 @@
   display: flex;
   justify-content: center;
 }
-.favorite {
+.favoriteBtn {
   display: flex;
-  fill: transparent;
-  stroke: #ffffff;
-  stroke-width: 2px;
   cursor: pointer;
   position: absolute;
   top: 16px;
@@ -31,10 +28,17 @@
 .heartIcon {
   width: 18px;
   height: 18px;
+  fill: transparent;
+  stroke: #ffffff;
+  stroke-width: 2px;
 }
 
-.heartIcon.favourite {
+.favoriteIcon {
+  width: 18px;
+  height: 18px;
   fill: #3470FF;
+  stroke: #3470FF;
+  stroke-width: 2px;
 }
 
 .carTitle {

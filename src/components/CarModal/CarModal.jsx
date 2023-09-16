@@ -66,19 +66,19 @@ export const CarModal = ({car, isOpen, onClose }) => {
           <p className={css.carOverview}>{car.description}</p>
           <h5 className={css.subTitle}>Accessories and functionalities:</h5>
           <ul className={css.subList}>
-            {car.accessories.map(accessory => (
-              <li className={css.descriptionItem} key={accessory.id}>{accessory}</li>
+            {car.accessories.map((accessory,index) => (
+              <li className={css.descriptionItem} key={`accessory_${index}`}>{accessory}</li>
             ))}
           </ul>
           <ul className={css.subList}>
-            {car.functionalities.map(functionality => (
-              <li className={css.descriptionItem} key={functionality.id}>{functionality}</li>
+            {car.functionalities.map((functionality, index) => (
+              <li className={css.descriptionItem} key={`functionality_${index}`}>{functionality}</li>
             ))}
           </ul>
           <h5 className={css.subTitle}>Rental Conditions:</h5>
           <ul className={css.conditionList}>
-            {rentalConditionsArray.map(item => (
-              <li className={css.conditionItem} key={item.id}>{item}</li>
+            {rentalConditionsArray.map((item,index) => (
+              <li className={css.conditionItem} key={`item_${index}`}>{item}</li>
             ))}
             <li className={css.conditionItem}>Mileage: <span className={css.special}>{car.mileage.toLocaleString('en-US')}</span></li>
             <li className={css.conditionItem}>Price: <span className={css.special}>{car.rentalPrice}</span></li>
