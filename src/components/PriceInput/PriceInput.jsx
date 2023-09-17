@@ -44,7 +44,7 @@ export const PriceInput = ({priceFilter, setPriceFilter}) => {
         <div className={css.inputWithIcon}>
           <input
             className={css.input}
-            type="text"
+            type="number"
             id="priceInput"
             placeholder="To $"
             value={priceFilter}

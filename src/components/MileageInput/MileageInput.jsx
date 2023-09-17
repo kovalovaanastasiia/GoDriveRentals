@@ -20,7 +20,7 @@ export const MileageInput = ({minMileage, maxMileage, setMinMileage, setMaxMilea
         <div className={css.inputsGroup}>
           <input
             className={css.input}
-            type="text"
+            type="number"
             id="minMileage"
             placeholder="From"
             value={minMileage}
@@ -28,7 +28,7 @@ export const MileageInput = ({minMileage, maxMileage, setMinMileage, setMaxMilea
           />
           <input
             className={css.input}
-            type="text"
+            type="number"
             id="maxMileage"
             placeholder="To"
             value={maxMileage}

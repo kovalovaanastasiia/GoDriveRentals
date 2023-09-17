@@ -82,9 +82,9 @@ export const Catalog = () => {
                                     setMinMileage={setMinMileage}
                                     setMaxMileage={setMaxMileage}/>)}
       </div>
-      <ul className={css.carsList}>
-        {visibleCars?.length > 0 &&
-          visibleCars.map((car) => (
+      {visibleCars?.length > 0 ? (
+        <ul className={css.carsList}>
+          {visibleCars.map((car) => (
             <li key={car.id}>
               <CarAdvert
                 car={car}
@@ -93,7 +93,10 @@ export const Catalog = () => {
               />
             </li>
           ))}
-      </ul>
+        </ul>
+      ) : (
+        <p className={css.emptyMsg}>No matching cars found.</p>
+      )}
       {visibleCars.length < filteredCars.length && (
         <button className={css.loadMoreBtn} type="button" onClick={loadMoreCars}>
           Load more
@@ -102,4 +105,3 @@ export const Catalog = () => {
     </div>
   );
 };
-

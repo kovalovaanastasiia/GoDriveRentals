@@ -14,7 +14,16 @@ body {
 .scrollLock {
   overflow: hidden;
 }
+input[type="number"] {
+  -moz-appearance: textfield;
+}
 
+/* Скрыть стрелки в инпуте с типом "number" в Mozilla Firefox */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-textfield-decoration-container {
+  display: none;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
