@@ -14,7 +14,7 @@ export const Catalog = () => {
   const [error, setError] = useState(null);
   const [pagination, setPagination] = useState({currentPage: 1, pageSize: 8});
   const [brandFilter, setBrandFilter] = useState('');
-  // const [priceFilter, setPriceFilter] = useState('');// todo разобраться с прайсфильтер
+  const [priceFilter, setPriceFilter] = useState('');
 
 
 
@@ -45,11 +45,11 @@ export const Catalog = () => {
       pageSize: prevPagination.pageSize,
     }));
   };
-  const filteredCars = cars.filter((car) =>
-    car.make.toLowerCase().includes(brandFilter.toLowerCase())
-  );
 
-  // const filteredCarsByPrice = filteredCars.filter ((car) => Number(car.rentalPrice.slice(1)) <= 40); // todo разобраться с прайсфильтер
+  const filteredCars = cars.filter((car) =>
+    car.make.toLowerCase().includes(brandFilter.toLowerCase()) &&
+    (!priceFilter || Number(car.rentalPrice.slice(1)) <= Number(priceFilter))
+  );
 
 
   const visibleCars = filteredCars.slice(
@@ -65,7 +65,7 @@ export const Catalog = () => {
       {error && <p>{error}</p>}
       <div className={css.inputsContainer} >
       {!loading && (<BrandInput cars={cars} brandFilter={brandFilter} setBrandFilter={setBrandFilter}/>)}
-      {!loading && (<PriceInput/>)}
+      {!loading && (<PriceInput priceFilter={priceFilter} setPriceFilter={setPriceFilter}/>)}
       </div>
       <ul className={css.carsList}>
         {visibleCars?.length > 0 &&
