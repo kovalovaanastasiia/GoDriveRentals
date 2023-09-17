@@ -52,9 +52,12 @@ export const Catalog = () => {
   const filteredCars = cars.filter((car) => {
     const makeMatch = car.make.toLowerCase().includes(brandFilter.toLowerCase());
     const priceMatch = !priceFilter || Number(car.rentalPrice.slice(1)) <= Number(priceFilter);
-    const mileageMatch = (!minMileage && !maxMileage) || (car.mileage >= minMileage || car.mileage <= maxMileage);
+    const mileage = car.mileage;
+    const minMileageMatch = !minMileage || mileage >= minMileage;
+    const maxMileageMatch = !maxMileage || mileage <= maxMileage;
 
-    return makeMatch && priceMatch && mileageMatch;
+
+    return makeMatch && priceMatch && minMileageMatch && maxMileageMatch;
   });
 
 
