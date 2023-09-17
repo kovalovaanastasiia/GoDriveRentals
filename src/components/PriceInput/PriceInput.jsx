@@ -12,6 +12,12 @@ export const PriceInput = ({ priceFilter, setPriceFilter }) => {
   const handleClosePriceList = () => {
     setShowPriceList(false);
   };
+
+  const handleOnChange = (event) => {
+  setPriceFilter(event.target.value);
+  handleClosePriceList()
+}
+
   const handlePriceClick = (price) => {
     setPriceFilter(price);
     handleClosePriceList();
@@ -41,7 +47,7 @@ export const PriceInput = ({ priceFilter, setPriceFilter }) => {
             id="priceInput"
             placeholder="To $"
             value={priceFilter}
-            onChange={(e) => setPriceFilter(e.target.value)}
+            onChange={handleOnChange}
             onClick={() => setShowPriceList(!showPriceList)}
           />
           {

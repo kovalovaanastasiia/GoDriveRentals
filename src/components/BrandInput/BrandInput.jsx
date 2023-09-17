@@ -15,6 +15,11 @@ export const BrandInput = ({cars, brandFilter, setBrandFilter}) => {
   const handleCloseBrandList = () => {
     setShowBrandList(false);
   };
+
+  const handleOnChange = (event) => {
+    setBrandFilter(event.target.value);
+    handleCloseBrandList()
+  }
   const handleBrandClick = (brand) => {
     setBrandFilter(brand);
     handleCloseBrandList();
@@ -45,7 +50,7 @@ export const BrandInput = ({cars, brandFilter, setBrandFilter}) => {
             id="brandInput"
             placeholder="Enter the text"
             value={brandFilter}
-            onChange={(e) => setBrandFilter(e.target.value)}
+            onChange={handleOnChange}
             onClick={() => setShowBrandList(!showBrandList)}
           />
           {

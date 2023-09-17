@@ -36,6 +36,9 @@
   align-items: center;
   width: 125px;
 }
+.input:focus {
+  outline: none;
+}
 .inputBtn {
   padding: 0;
   right: -10px;

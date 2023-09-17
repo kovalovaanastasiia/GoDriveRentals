@@ -6,10 +6,18 @@ import {Loader} from "../../components/Loader/Loader";
 export const Favorites = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [pagination, setPagination] = useState({currentPage: 1, pageSize: 8});
   const [favoriteCars, setFavoriteCars] = React.useState(
     JSON.parse(localStorage.getItem('favoriteCars')) || []
   );
 
+  const loadMoreCars = () => {
+    setPagination((prevPagination) => ({
+      currentPage: prevPagination.currentPage + 1,
+      pageSize: prevPagination.pageSize,
+    }));
+  };
+  const visibleCars = favoriteCars.slice(0,pagination.currentPage * pagination.pageSize);
   const removeFromFavorites = (index) => {
     try {
       const updatedFavoriteCars = [...favoriteCars];
@@ -27,10 +35,10 @@ export const Favorites = () => {
       {loading && <Loader />}
       {error && <p>{error}</p>}
       <ul className={css.carsList}>
-        { favoriteCars?.length > 0 ? (
-          favoriteCars.map(favoriteCar => (
-            <li key={favoriteCar.id}>
-              <CarAdvert car={favoriteCar} favoriteCars={favoriteCars} setFavoriteCars={removeFromFavorites}/>
+        { visibleCars?.length > 0 ? (
+          visibleCars.map(visibleCar => (
+            <li key={visibleCar.id}>
+              <CarAdvert car={visibleCar} favoriteCars={favoriteCars} setFavoriteCars={removeFromFavorites}/>
             </li>
           ))
         ) : (
@@ -39,6 +47,11 @@ export const Favorites = () => {
           </li>
         )}
       </ul>
+      {visibleCars.length < favoriteCars.length && (
+        <button className={css.loadMoreBtn} type="button" onClick={loadMoreCars}>
+          Load more
+        </button>
+      )}
     </>
   );
 }

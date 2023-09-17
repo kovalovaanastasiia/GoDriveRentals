@@ -6,6 +6,7 @@ import {Loader} from "../../components/Loader/Loader";
 import {getAllCars} from "../../services/api";
 import {BrandInput} from "../../components/BrandInput/BrandInput";
 import {PriceInput} from "../../components/PriceInput/PriceInput";
+import {MileageInput} from "../../components/MileageInput/MileageInput";
 
 export const Catalog = () => {
   const [cars, setCars] = useState([]);
@@ -15,7 +16,8 @@ export const Catalog = () => {
   const [pagination, setPagination] = useState({currentPage: 1, pageSize: 8});
   const [brandFilter, setBrandFilter] = useState('');
   const [priceFilter, setPriceFilter] = useState('');
-
+  const [minMileage, setMinMileage] = useState('');
+  const [maxMileage, setMaxMileage] = useState('');
 
 
   useEffect(() => {
@@ -46,10 +48,13 @@ export const Catalog = () => {
     }));
   };
 
-  const filteredCars = cars.filter((car) =>
-    car.make.toLowerCase().includes(brandFilter.toLowerCase()) &&
-    (!priceFilter || Number(car.rentalPrice.slice(1)) <= Number(priceFilter))
-  );
+  const filteredCars = cars.filter((car) => {
+    const makeMatch = car.make.toLowerCase().includes(brandFilter.toLowerCase());
+    const priceMatch = !priceFilter || Number(car.rentalPrice.slice(1)) <= Number(priceFilter);
+    const mileageMatch = (!minMileage && !maxMileage) || (car.mileage >= minMileage || car.mileage <= maxMileage);
+
+    return makeMatch && priceMatch && mileageMatch;
+  });
 
 
   const visibleCars = filteredCars.slice(
@@ -58,14 +63,17 @@ export const Catalog = () => {
   );
 
 
-
   return (
     <div className={css.container}>
       {loading && <Loader/>}
       {error && <p>{error}</p>}
-      <div className={css.inputsContainer} >
-      {!loading && (<BrandInput cars={cars} brandFilter={brandFilter} setBrandFilter={setBrandFilter}/>)}
-      {!loading && (<PriceInput priceFilter={priceFilter} setPriceFilter={setPriceFilter}/>)}
+      <div className={css.inputsContainer}>
+        {!loading && (<BrandInput cars={cars} brandFilter={brandFilter} setBrandFilter={setBrandFilter}/>)}
+        {!loading && (<PriceInput priceFilter={priceFilter} setPriceFilter={setPriceFilter}/>)}
+        {!loading && (<MileageInput minMileage={minMileage}
+                                    maxMileage={maxMileage}
+                                    setMinMileage={setMinMileage}
+                                    setMaxMileage={setMaxMileage}/>)}
       </div>
       <ul className={css.carsList}>
         {visibleCars?.length > 0 &&
