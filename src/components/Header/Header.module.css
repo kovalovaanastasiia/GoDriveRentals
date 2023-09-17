@@ -1,12 +1,9 @@
 .headerContainer {
-  /*position: fixed;*/
   position: static;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #1e2028;
-
-
 }
 
 .navigation {
@@ -29,9 +26,9 @@
 }
 
 .navLink:hover {
-   font-size: 22px;
-   color: #ffffff;
- }
+  font-size: 22px;
+  color: #ffffff;
+}
 
 .navLink[aria-current='page'] {
   color: #3470FF;

@@ -6,7 +6,7 @@ export const Main = () => {
   return (
     <main>
       <Suspense fallback={<div>Loading page...</div>}>
-        <Outlet />
+        <Outlet/>
       </Suspense>
     </main>
   );

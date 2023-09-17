@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-
-import css from './CarModal.module.css'
+import React, {useState, useEffect} from 'react';
 import {IconSvg} from "../IconSvg/IconSvg";
 
+import css from './CarModal.module.css'
 
-export const CarModal = ({car, isOpen, onClose }) => {
+
+export const CarModal = ({car, isOpen, onClose}) => {
   const [isVisible, setIsVisible] = useState(isOpen);
   const addressArray = car.address.split(', ');
   const country = addressArray[addressArray.length - 1];
@@ -41,7 +41,7 @@ export const CarModal = ({car, isOpen, onClose }) => {
     <div className={css.backdrop} onClick={closeModal}>
       <div className={css.modal} onClick={(e) => e.stopPropagation()}>
         <div onClick={closeModal}>
-          <IconSvg id={'close'} className={css.close} />
+          <IconSvg id={'close'} className={css.close}/>
         </div>
         <div className={css.modalThumb}>
           <img className={css.carImage} src={car.img} alt="Car"/>
@@ -66,7 +66,7 @@ export const CarModal = ({car, isOpen, onClose }) => {
           <p className={css.carOverview}>{car.description}</p>
           <h5 className={css.subTitle}>Accessories and functionalities:</h5>
           <ul className={css.subList}>
-            {car.accessories.map((accessory,index) => (
+            {car.accessories.map((accessory, index) => (
               <li className={css.descriptionItem} key={`accessory_${index}`}>{accessory}</li>
             ))}
           </ul>
@@ -77,10 +77,11 @@ export const CarModal = ({car, isOpen, onClose }) => {
           </ul>
           <h5 className={css.subTitle}>Rental Conditions:</h5>
           <ul className={css.conditionList}>
-            {rentalConditionsArray.map((item,index) => (
+            {rentalConditionsArray.map((item, index) => (
               <li className={css.conditionItem} key={`item_${index}`}>{item}</li>
             ))}
-            <li className={css.conditionItem}>Mileage: <span className={css.special}>{car.mileage.toLocaleString('en-US')}</span></li>
+            <li className={css.conditionItem}>Mileage: <span
+              className={css.special}>{car.mileage.toLocaleString('en-US')}</span></li>
             <li className={css.conditionItem}>Price: <span className={css.special}>{car.rentalPrice}</span></li>
           </ul>
           <a className={css.button} href="tel:+380730000000">Rental car</a>

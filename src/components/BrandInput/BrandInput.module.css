@@ -22,6 +22,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 .input {
   color: #121417;
   font-size: 18px;
@@ -36,9 +37,11 @@
   justify-content: center;
   align-items: center;
 }
+
 .input:focus {
   outline: none;
 }
+
 .inputBtn {
   padding: 0;
   right: 0;
@@ -48,11 +51,13 @@
   border: none;
   cursor: pointer;
 }
+
 .inputIcon {
   width: 20px;
   height: 20px;
   fill: #000;
 }
+
 .brandList {
   z-index: 50;
   width: 224px;
@@ -70,6 +75,7 @@
   border-radius: 14px;
   box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
 }
+
 .brandItem {
   padding: 10px;
 }

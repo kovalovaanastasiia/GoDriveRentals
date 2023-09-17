@@ -4,6 +4,7 @@
   gap: 4px;
   flex-direction: column;
 }
+
 .label {
   color: #8A8A89;
   font-size: 14px;
@@ -11,10 +12,12 @@
   font-weight: 500;
   line-height: 18px;
 }
+
 .inputsGroup {
   display: flex;
 
 }
+
 .input {
   width: 160px;
   color: #121417;
@@ -23,20 +26,22 @@
   font-weight: 500;
   line-height: 20px;
   border: none;
-
   background: #F7F7FB;
   display: flex;
   padding: 14px 14px 18px;
   justify-content: center;
   align-items: center;
 }
+
 .input:focus {
   outline: none;
 }
+
 .input:first-child {
   border-radius: 14px 0 0 14px;
   border-right: 1px solid rgba(138, 138, 137, 0.20);
 }
+
 .input:last-child {
   border-radius: 0 14px 14px 0;
 }

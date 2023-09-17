@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {CarAdvert} from "../../components/CarAdvert/CarAdvert";
-
-import css from './Catalog.module.css'
 import {Loader} from "../../components/Loader/Loader";
 import {getAllCars} from "../../services/api";
 import {BrandInput} from "../../components/BrandInput/BrandInput";
 import {PriceInput} from "../../components/PriceInput/PriceInput";
 import {MileageInput} from "../../components/MileageInput/MileageInput";
+
+import css from './Catalog.module.css'
+
 
 export const Catalog = () => {
   const [cars, setCars] = useState([]);
@@ -68,8 +69,11 @@ export const Catalog = () => {
       {loading && <Loader/>}
       {error && <p>{error}</p>}
       <div className={css.inputsContainer}>
-        {!loading && (<BrandInput cars={cars} brandFilter={brandFilter} setBrandFilter={setBrandFilter}/>)}
-        {!loading && (<PriceInput priceFilter={priceFilter} setPriceFilter={setPriceFilter}/>)}
+        {!loading && (<BrandInput cars={cars}
+                                  brandFilter={brandFilter}
+                                  setBrandFilter={setBrandFilter}/>)}
+        {!loading && (<PriceInput priceFilter={priceFilter}
+                                  setPriceFilter={setPriceFilter}/>)}
         {!loading && (<MileageInput minMileage={minMileage}
                                     maxMileage={maxMileage}
                                     setMinMileage={setMinMileage}

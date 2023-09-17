@@ -1,6 +1,7 @@
 import {useEffect, useRef, useState} from "react";
-import css from "./BrandInput.module.css";
 import {IconSvg} from "../IconSvg/IconSvg";
+
+import css from "./BrandInput.module.css";
 
 export const BrandInput = ({cars, brandFilter, setBrandFilter}) => {
   const [showBrandList, setShowBrandList] = useState(false);

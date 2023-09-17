@@ -1,4 +1,3 @@
-
 import css from "./MileageInput.module.css"
 
 
@@ -11,7 +10,6 @@ export const MileageInput = ({minMileage, maxMileage, setMinMileage, setMaxMilea
   const handleMaxMileageChange = e => {
     setMaxMileage(e.target.value);
   };
-
 
   return (
     <>

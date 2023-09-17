@@ -2,6 +2,7 @@ import {Link} from 'react-router-dom';
 
 import css from './ErrorPage.module.css';
 
+
 export const ErrorPage = () => {
   return (
     <div className={css.errContainer}>

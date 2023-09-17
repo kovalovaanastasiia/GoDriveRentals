@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {IconSvg} from "../IconSvg/IconSvg";
-import css from './CarAdvert.module.css'
 import {CarModal} from "../CarModal/CarModal";
+import {IconSvg} from "../IconSvg/IconSvg";
+
+import css from './CarAdvert.module.css'
 
 
 export const CarAdvert = ({car, favoriteCars, setFavoriteCars}) => {

@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
-import css from "../Catalog/Catalog.module.css";
 import {CarAdvert} from "../../components/CarAdvert/CarAdvert";
 import {Loader} from "../../components/Loader/Loader";
+
+import css from "../Catalog/Catalog.module.css";
+
 
 export const Favorites = () => {
   const [loading, setLoading] = useState(false);
@@ -17,7 +19,7 @@ export const Favorites = () => {
       pageSize: prevPagination.pageSize,
     }));
   };
-  const visibleCars = favoriteCars.slice(0,pagination.currentPage * pagination.pageSize);
+  const visibleCars = favoriteCars.slice(0, pagination.currentPage * pagination.pageSize);
   const removeFromFavorites = (index) => {
     try {
       const updatedFavoriteCars = [...favoriteCars];
@@ -32,13 +34,15 @@ export const Favorites = () => {
   }
   return (
     <>
-      {loading && <Loader />}
+      {loading && <Loader/>}
       {error && <p>{error}</p>}
       <ul className={css.carsList}>
-        { visibleCars?.length > 0 ? (
+        {visibleCars?.length > 0 ? (
           visibleCars.map(visibleCar => (
             <li key={visibleCar.id}>
-              <CarAdvert car={visibleCar} favoriteCars={favoriteCars} setFavoriteCars={removeFromFavorites}/>
+              <CarAdvert car={visibleCar}
+                         favoriteCars={favoriteCars}
+                         setFavoriteCars={removeFromFavorites}/>
             </li>
           ))
         ) : (

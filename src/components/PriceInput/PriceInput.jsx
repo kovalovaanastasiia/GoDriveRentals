@@ -1,22 +1,23 @@
 import {useEffect, useRef, useState} from "react";
-import css from "./PriceInput.module.css";
 import {IconSvg} from "../IconSvg/IconSvg";
 
-export const PriceInput = ({ priceFilter, setPriceFilter }) => {
+import css from "./PriceInput.module.css";
+
+
+export const PriceInput = ({priceFilter, setPriceFilter}) => {
   const [showPriceList, setShowPriceList] = useState(false);
   const containerRef = useRef(null);
 
-  const priceList = Array.from({ length: 50 }, (_, index) => (index + 1) * 10);
-
+  const priceList = Array.from({length: 50}, (_, index) => (index + 1) * 10);
 
   const handleClosePriceList = () => {
     setShowPriceList(false);
   };
 
   const handleOnChange = (event) => {
-  setPriceFilter(event.target.value);
-  handleClosePriceList()
-}
+    setPriceFilter(event.target.value);
+    handleClosePriceList()
+  }
 
   const handlePriceClick = (price) => {
     setPriceFilter(price);
