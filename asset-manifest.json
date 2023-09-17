@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/GoDriveRentals/static/css/main.e8aa126b.css",
-    "main.js": "/GoDriveRentals/static/js/main.7bf83a10.js",
+    "main.css": "/GoDriveRentals/static/css/main.2f7301a2.css",
+    "main.js": "/GoDriveRentals/static/js/main.5732b8fa.js",
     "static/media/63050-spidometr_panel_priborov_chernyj.jpg": "/GoDriveRentals/static/media/63050-spidometr_panel_priborov_chernyj.679859a3e46d0876beab.jpg",
-    "static/media/icons.svg": "/GoDriveRentals/static/media/icons.d9bc49ac3618e4e49a05a53cc039cb05.svg",
+    "static/media/icons.svg": "/GoDriveRentals/static/media/icons.d14fdd246567a7774e845d0914080b7b.svg",
     "index.html": "/GoDriveRentals/index.html",
-    "main.e8aa126b.css.map": "/GoDriveRentals/static/css/main.e8aa126b.css.map",
-    "main.7bf83a10.js.map": "/GoDriveRentals/static/js/main.7bf83a10.js.map"
+    "main.2f7301a2.css.map": "/GoDriveRentals/static/css/main.2f7301a2.css.map",
+    "main.5732b8fa.js.map": "/GoDriveRentals/static/js/main.5732b8fa.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8aa126b.css",
-    "static/js/main.7bf83a10.js"
+    "static/css/main.2f7301a2.css",
+    "static/js/main.5732b8fa.js"
   ]
 }
