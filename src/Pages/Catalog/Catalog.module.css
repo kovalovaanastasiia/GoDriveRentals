@@ -1,3 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.inputsContainer {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 40px;
+  margin-right: auto;
+  margin-left: auto;
+
+}
 .carsList {
   list-style: none;
   display: flex;
@@ -7,3 +19,31 @@
   padding-left: 228px;
   padding-right: 228px;
 }
+.emptyMsg {
+  color: #2c4bda;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  margin-top: 200px;
+  text-shadow: 0 0 10px rgb(33, 70, 255);
+}
+.loadMoreBtn {
+  margin-top: 100px;
+  margin-bottom: 150px;
+  color: #3470FF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  text-decoration-line: underline;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+.loadMoreBtn:hover {
+  color: #0B44CD;
+  font-size: 18px;
+}
+

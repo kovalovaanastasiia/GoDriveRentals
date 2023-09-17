@@ -1,0 +1,38 @@
+.errContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  padding-top: 100px;
+  height: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #1e2028;
+  overflow: hidden;
+}
+
+.errTitle {
+  color: #e3dbdb;
+  font-size: 50px;
+  text-shadow: 0 0 10px rgb(33, 70, 255);
+}
+
+.homeLink {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #3470FF;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 44px;
+  width: 300px;
+}
+.homeLink:hover {
+  background-color: #0B44CD;
+}

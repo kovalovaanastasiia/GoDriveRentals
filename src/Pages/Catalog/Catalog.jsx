@@ -1,22 +1,34 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {CarAdvert} from "../../components/CarAdvert/CarAdvert";
 
 import css from './Catalog.module.css'
+import {Loader} from "../../components/Loader/Loader";
+import {getAllCars} from "../../services/api";
+import {BrandInput} from "../../components/BrandInput/BrandInput";
+import {PriceInput} from "../../components/PriceInput/PriceInput";
 
 export const Catalog = () => {
-  const URL = 'https://6496e6dd83d4c69925a33840.mockapi.io/car_adverts';
   const [cars, setCars] = useState([]);
   const [favoriteCars, setFavoriteCars] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [pagination, setPagination] = useState({currentPage: 1, pageSize: 8});
+  const [brandFilter, setBrandFilter] = useState('');
+  // const [priceFilter, setPriceFilter] = useState('');// todo разобраться с прайсфильтер
+
 
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(URL);
-        setCars(response.data);
+        setLoading(true);
+        setError(null);
+        const response = await getAllCars();
+        setCars(response);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -27,16 +39,52 @@ export const Catalog = () => {
     setFavoriteCars(storedFavorites);
   }, []);
 
-  return (
-    <>
-      <ul className={css.carsList}>
-        {cars.map(car => (
-          <li key={car.id}>
-            <CarAdvert car={car} favoriteCars={favoriteCars} setFavoriteCars={setFavoriteCars}/>
-          </li>
-        ))}
-      </ul>
-    </>
+  const loadMoreCars = () => {
+    setPagination((prevPagination) => ({
+      currentPage: prevPagination.currentPage + 1,
+      pageSize: prevPagination.pageSize,
+    }));
+  };
+  const filteredCars = cars.filter((car) =>
+    car.make.toLowerCase().includes(brandFilter.toLowerCase())
   );
-}
+
+  // const filteredCarsByPrice = filteredCars.filter ((car) => Number(car.rentalPrice.slice(1)) <= 40); // todo разобраться с прайсфильтер
+
+
+  const visibleCars = filteredCars.slice(
+    0,
+    pagination.currentPage * pagination.pageSize
+  );
+
+
+
+  return (
+    <div className={css.container}>
+      {loading && <Loader/>}
+      {error && <p>{error}</p>}
+      <div className={css.inputsContainer} >
+      {!loading && (<BrandInput cars={cars} brandFilter={brandFilter} setBrandFilter={setBrandFilter}/>)}
+      {!loading && (<PriceInput/>)}
+      </div>
+      <ul className={css.carsList}>
+        {visibleCars?.length > 0 &&
+          visibleCars.map((car) => (
+            <li key={car.id}>
+              <CarAdvert
+                car={car}
+                favoriteCars={favoriteCars}
+                setFavoriteCars={setFavoriteCars}
+              />
+            </li>
+          ))}
+      </ul>
+      {visibleCars.length < filteredCars.length && (
+        <button className={css.loadMoreBtn} type="button" onClick={loadMoreCars}>
+          Load more
+        </button>
+      )}
+    </div>
+  );
+};
 

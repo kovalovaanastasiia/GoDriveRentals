@@ -1,0 +1,71 @@
+.inputThumb {
+  margin-top: 50px;
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  width: 125px;
+  height: 48px;
+}
+
+.label {
+  color: #8A8A89;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  width: 125px;
+}
+
+.inputWithIcon {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.input {
+  color: #121417;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  border: none;
+  border-radius: 14px;
+  background: #F7F7FB;
+  display: flex;
+  padding: 14px 14px 18px;
+  justify-content: center;
+  align-items: center;
+  width: 125px;
+}
+.inputBtn {
+  padding: 0;
+  right: -10px;
+  top: 14px;
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.inputIcon {
+  width: 20px;
+  height: 20px;
+  fill: #000;
+}
+.priceList {
+  z-index: 50;
+  width: 125px;
+  margin-top: 0;
+  overflow: auto;
+  background: #F7F7FB;
+  display: flex;
+  flex-direction: column;
+  height: 272px;
+  list-style: none;
+  padding: 14px 8px 14px 18px;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
+}
+.priceItem {
+  padding: 10px;
+}
