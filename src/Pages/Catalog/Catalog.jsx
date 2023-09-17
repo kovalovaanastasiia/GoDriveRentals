@@ -95,7 +95,7 @@ export const Catalog = () => {
           ))}
         </ul>
       ) : (
-        <p className={css.emptyMsg}>No matching cars found.</p>
+       !loading && <p className={css.emptyMsg}>No matching cars found.</p>
       )}
       {visibleCars.length < filteredCars.length && (
         <button className={css.loadMoreBtn} type="button" onClick={loadMoreCars}>
